@@ -6,7 +6,7 @@
 /*   By: jimikim <jimikim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/13 23:26:09 by jimikim           #+#    #+#             */
-/*   Updated: 2021/04/14 02:34:10 by jimikim          ###   ########.fr       */
+/*   Updated: 2021/04/14 19:26:37 by sangykim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,7 +108,10 @@ char	**ft_set_input_map(char *file, int size, char *keyboard_array)
 	if ((fd = open(file, O_RDONLY)) == -1)
 	{
 		while (i < g_col_size)
-			map[i++] = ft_push_array_keyboard(keyboard_array, &i);
+		{
+			map[i] = ft_push_array_keyboard(keyboard_array, &i);
+			i++;
+		}
 		return (map);
 	}
 	ft_mv_nextline(fd, size);
